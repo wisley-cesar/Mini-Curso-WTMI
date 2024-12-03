@@ -4,15 +4,15 @@ import 'package:primeiro_app/estrela.dart';
 
 class Task extends StatefulWidget {
   final String title;
-  final String url;
+  final Icon icon;
   final int dificuldade;
 
   const Task({
-    Key? key,
+    super.key,
     required this.title,
-    required this.url,
+    required this.icon,
     required this.dificuldade,
-  }) : super(key: key);
+  });
 
   @override
   State<Task> createState() => _TaskState();
@@ -56,10 +56,10 @@ class _TaskState extends State<Task> {
                           height: 100,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
-                            child: Image.network(
-                              widget.url,
-                              fit: BoxFit.cover,
-                            ),
+                            child: Container(
+                                decoration:
+                                    const BoxDecoration(color: Colors.blueGrey),
+                                child: widget.icon),
                           ),
                         ),
                         Column(
@@ -113,10 +113,10 @@ class _TaskState extends State<Task> {
                               nivel++;
                             });
                           },
-                          child: Container(
+                          child: const SizedBox(
                             height: 45,
                             width: 45,
-                            child: const Column(
+                            child: Column(
                               children: [
                                 Icon(
                                   Icons.arrow_drop_up,

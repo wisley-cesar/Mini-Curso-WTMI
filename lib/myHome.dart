@@ -30,21 +30,18 @@ class _MyhomeState extends State<Myhome> {
         children: const [
           Task(
             title: 'Aprendendo Flutter',
-            url:
-                'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
+            icon: Icon(Icons.book),
             dificuldade: 4,
           ),
           Task(
             title: 'Andar de bicicleta ',
             dificuldade: 1,
-            url:
-                'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/11/23/59428028-ciclismo-descubra-os-beneficios-e-como-comecar-a-pedalar.jpg',
+            icon: Icon(Icons.pedal_bike),
           ),
           Task(
             title: 'Jogar bola',
             dificuldade: 2,
-            url:
-                'https://i.pinimg.com/736x/34/25/b3/3425b32654f6e36aafa8fa9bc1d5bd0b.jpg',
+            icon: Icon(Icons.sports_soccer),
           ),
         ],
       ),
