@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:primeiro_app/task.dart';
 
 class Myhome extends StatefulWidget {
-  const Myhome({super.key});
+  bool opacitade = true;
+
+  Myhome({
+    super.key,
+  });
 
   @override
   State<Myhome> createState() => _MyhomeState();
@@ -26,31 +30,39 @@ class _MyhomeState extends State<Myhome> {
         ),
         backgroundColor: Colors.blue,
       ),
-      body: ListView(
-        children: const [
-          Task(
-            title: 'Aprendendo Flutter',
-            icon: Icon(Icons.book),
-            dificuldade: 4,
-          ),
-          Task(
-            title: 'Andar de bicicleta ',
-            dificuldade: 1,
-            icon: Icon(Icons.pedal_bike),
-          ),
-          Task(
-            title: 'Jogar bola',
-            dificuldade: 2,
-            icon: Icon(Icons.sports_soccer),
-          ),
-        ],
+      body: AnimatedOpacity(
+        opacity: widget.opacitade ? 1 : 0,
+        duration: const Duration(milliseconds: 800),
+        child: ListView(
+          children: const [
+            Task(
+              title: 'Aprendendo Flutter',
+              icon: Icon(Icons.book),
+              dificuldade: 4,
+            ),
+            Task(
+              title: 'Andar de bicicleta ',
+              dificuldade: 1,
+              icon: Icon(Icons.pedal_bike),
+            ),
+            Task(
+              title: 'Jogar bola',
+              dificuldade: 2,
+              icon: Icon(Icons.sports_soccer),
+            ),
+          ],
+        ),
       ),
       // Apenas Para mostrar
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //   backgroundColor: Colors.blue,
-      //   child: const Icon(Icons.add),
-      // ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            widget.opacitade = !widget.opacitade;
+          });
+        },
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.remove_red_eye),
+      ),
     );
   }
 }
